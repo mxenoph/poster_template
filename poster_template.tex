@@ -1,0 +1,236 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Portrait Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+% and modified by Maria Xenophontos 
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,portrait]{a0poster}
+%\usepackage[lmargin=1cm,bmargin=1cm]{geometry}
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+\usepackage[cmyk]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{figures/}} % Location of the graphics files
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage{epstopdf} % convert eps figures to pdf with pdflatex
+
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+%\usepackage{savesym}
+%\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+
+\usepackage{titlesec}
+\usepackage{fontspec} % For loading fonts
+\setmainfont[Mapping=tex-text]{Garamond}
+\setsansfont[Mapping=tex-text]{Helvetica}
+
+\usepackage[numbers]{natbib}
+%\bibliographystyle{abbrv2au}
+\bibliographystyle{abbr1au}
+\usepackage[section]{placeins}
+\usepackage{float}
+
+% For dummy text in template
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
+
+%----------------------------------------------------------------------------------------
+%	MACROS AND ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+
+% Define EMBL colours
+\definecolor{EMBLBlue}{cmyk}{0.93,0.26,0.46,0.11}
+\definecolor{EMBLGreen}{cmyk}{0.6,0,0.85,0.1}
+\definecolor{EMBLRed}{cmyk}{0,1,0.9,0.05}
+\definecolor{DarkGrey}{cmyk}{0.35,0.28,0.29,0}
+\definecolor{Black}{cmyk}{0,0,0,1}
+
+\newcommand*\hlitem[1][EMBLRed]{\color{#1}\item\color{Black}}
+\newcommand\helvetica[1]{\begingroup\sffamily #1\endgroup}
+\newcommand\ptitle[2]{\linespread{#1}\selectfont\veryHuge\color{EMBLBlue}\textbf{#2}\par\bigskip}
+
+% Set the section and subsections titles to EMBL colours
+\titleformat*{\section}{\sffamily\Large\bfseries\color{EMBLBlue}}
+\titleformat*{\subsection}{\sffamily\large\bfseries\color{EMBLGreen}}
+\titleformat*{\subsubsection}{\sffamily\normalsize\bfseries\color{DarkGrey}}
+% Set the colours for paragraphs
+\titleformat*{\paragraph}{\normalfont\normalsize\bfseries\color{black}}
+\titleformat*{\subparagraph}{\normalfont\normalsize\bfseries\color{black}}
+
+%\newcommand*\hlitsection[1][EMBLBlue]{\color{#1}\section{•}\color{Black}}
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into two boxes:
+% The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
+% The second is 25% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+\makeatletter
+\show\ttlf@section
+
+\helvetica{ 
+\begin{minipage}[b]{1.0\linewidth}
+ % Title
+\ptitle{1}{Title}  
+\color{DarkGrey}
+ % Subtitle
+\Huge\textit{subtitle}\\[1.5cm] 
+ % Author(s)
+\huge \color{Black} \textbf{\underline{Author.\textsuperscript{1}},Co-author. \textsuperscript{2}} \\[0.5cm]
+%Institutes
+\normalsize 1. Author affiliation 
+\\2. Co-author affiliation
+\end{minipage}}
+
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
+\renewcommand\baselinestretch{1}
+%----------------------------------------------------------------------------------------
+
+
+\begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+\large
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+\section*{Abstract}
+\blindtext
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+\section*{Introduction}
+\blindtext ~\citep{Reynolds2012a}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+\section*{Main Objectives}
+
+\blindlist{enumerate}[3]
+%\begin{enumerate}
+%\end{enumerate}
+
+%----------------------------------------------------------------------------------------
+%	MATERIALS AND METHODS
+%----------------------------------------------------------------------------------------
+\section*{Materials and Methods}
+\blindtext
+
+%----------------------------------------------------------------------------------------
+%	RESULTS 
+%----------------------------------------------------------------------------------------
+\section*{Results}
+
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.8\linewidth]{placeholder}
+\captionof{figure}{\color{Black} Figure caption}
+\end{center}\vspace{1cm}
+
+\blindtext
+
+\begin{center}\vspace{1cm}
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{\color{Black} Table caption}
+\end{center}\vspace{1cm}
+
+
+\begin{center}\vspace{1cm}
+\includegraphics[width=0.8\linewidth]{placeholder}
+\captionof{figure}{\color{Black} Figure caption}
+\end{center}\vspace{1cm}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSIONS
+%----------------------------------------------------------------------------------------
+\section*{Conclusions}
+
+\begin{itemize}
+\hlitem blah blah
+\hlitem blah blah
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	FORTHCOMING RESEARCH
+%----------------------------------------------------------------------------------------
+\section*{Future Research}
+
+\small
+\begin{multicols}{2}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+% No need for section as one is printed from \bibliography
+\bibliography{sample.bib} % Use the example bibliography file sample.bib
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\section*{Acknowledgements}
+
+Thank me, Thank me...!
+%----------------------------------------------------------------------------------------
+\end{multicols}
+
+\end{multicols}
+\vfill
+
+\begin{minipage}[][][b]{0.20\linewidth}
+\includegraphics[width=15cm]{figures/Pantone-colour-accurate/Colour_logo_pantone_DM.eps}
+\end{minipage}
+\qquad
+\begin{minipage}[][][b]{0.20\linewidth}
+\includegraphics[width=15cm]{figures/SCI_logo.eps}
+\end{minipage}
+\qquad
+\begin{minipage}[][][b]{0.20\linewidth}
+\includegraphics[width=15cm]{figures/EMBL-EBIlogo.eps}
+\end{minipage}
+\qquad
+\begin{minipage}[][][b]{0.20\linewidth}
+\color{EMBLBlue}
+EMBL-EBI \\
+Welcome Trust Genome Campus \\
+Hinxton, Cambridgeshire, CB10 1SD, UK
+\end{minipage}
+\qquad
+\begin{minipage}[][][b]{0.20\linewidth}
+\color{EMBLBlue}
+% Tel. +44 (0) 1223 494 444
+johndoe@ebi.ac.uk \\
+www.ebi.ac.uk
+\end{minipage}
+
+\end{document}
